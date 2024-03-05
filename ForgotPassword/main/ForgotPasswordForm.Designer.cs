@@ -277,6 +277,7 @@
             this.txtGmail.Size = new System.Drawing.Size(370, 20);
             this.txtGmail.TabIndex = 1;
             this.txtGmail.Click += new System.EventHandler(this.textBox1_Click);
+            this.txtGmail.Leave += new System.EventHandler(this.txtGmail_Leave);
             this.txtGmail.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.txtGmail.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             // 

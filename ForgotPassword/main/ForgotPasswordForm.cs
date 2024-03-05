@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Net;
 using System.Net.Mail;
 using System.Drawing.Drawing2D;
+using System.Text.RegularExpressions;
 
 namespace main
 {
@@ -157,6 +158,25 @@ namespace main
                 ResetPasswordForm reset = new ResetPasswordForm();
                 reset.Show();
             }
+            else
+            {
+                MessageBox.Show("Verification Code Does Not Matched.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
         }
+
+        private void txtGmail_Leave(object sender, EventArgs e)
+        {
+            Regex mRegxExpression;
+            if (txtGmail.Text.Trim() != string.Empty)
+            {
+                mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@gmail\.com$");
+
+                if (!mRegxExpression.IsMatch(txtGmail.Text.Trim()))
+                {
+                    MessageBox.Show("E-mail address must end with @gmail.com", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+     
     }
 }
